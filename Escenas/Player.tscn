@@ -23,7 +23,7 @@ animations = [ {
 radius = 27.0
 height = 14.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Player" type="Area2D"]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
@@ -36,3 +36,5 @@ animation = "Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
