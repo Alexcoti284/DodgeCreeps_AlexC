@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -487, -802, 0, 0, 0, 0, -487, -802, 0, 0, 0, 0, -7, -802, 0, 0, 0, 0, -7, -82, 0, 0, 0, 0, -487, -82, 0, 0, 0, 0, -487, -802 )
+}
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 247, 352 )
 
 [node name="MobTimer" type="Timer" parent="Player"]
 wait_time = 0.5
@@ -17,3 +23,7 @@ wait_time = 2.0
 
 [node name="StartPosition" type="Position2D" parent="Player"]
 position = Vector2( 240, 450 )
+
+[node name="MobPath" type="Path2D" parent="Player"]
+position = Vector2( 240, 450 )
+curve = SubResource( 1 )
