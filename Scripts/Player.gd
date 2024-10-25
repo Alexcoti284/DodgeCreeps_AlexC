@@ -6,7 +6,7 @@ var screen_size # Mida de la finestra de joc.
 func _ready():
 	
 	screen_size = get_viewport_rect().size
-	hide()
+	# hide()
 	
 	
 func _process(delta):
