@@ -4,24 +4,28 @@ var score
 
 func _ready():
 	randomize()
-	new_game()
-	
-func game_over():
-	$ScoreTimer.stop()
-	$MobTimer.stop()
+	#new_game()
 	
 func new_game():
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
+	get_tree().call_group("mobs", "queue_free")
+
+func game_over():
+	$ScoreTimer.stop()
+	$MobTimer.stop()
+	$HUD.show_game_over()
 
 func _on_ScoreTimer_timeout():
 	score += 1
+	$HUD.update_score(score)
 	
 func _on_StartTimer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
-
 
 func _on_MobTimer_timeout():
 	# Crea una nova instància de l'escena Mob.
@@ -38,7 +42,8 @@ func _on_MobTimer_timeout():
 	mob.rotation = direction
 	# Tria la velocitat de la multitud.
 	var velocity = Vector2(rand_range(150.0, 250.0), 0.0)
-	print(velocity)
 	mob.linear_velocity = velocity.rotated(direction)
 	# Va fer que la multitud s'afegís a l'escena principal.
 	add_child(mob)
+	
+
