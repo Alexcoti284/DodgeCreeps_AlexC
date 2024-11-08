@@ -16,6 +16,11 @@ _data = {
 script = ExtResource( 2 )
 mob_scene = ExtResource( 3 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 480.0
+margin_bottom = 720.0
+color = Color( 0.376471, 0.576471, 0.737255, 1 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 247, 352 )
 
@@ -37,11 +42,6 @@ curve = SubResource( 1 )
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 480.0
-margin_bottom = 720.0
-color = Color( 0.376471, 0.576471, 0.737255, 1 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
