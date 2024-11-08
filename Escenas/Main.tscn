@@ -36,6 +36,11 @@ curve = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 480.0
+margin_bottom = 720.0
+color = Color( 0.376471, 0.576471, 0.737255, 1 )
+
 [connection signal="body_entered" from="Player" to="Player" method="_on_Player_body_entered"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
